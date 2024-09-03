@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
@@ -12,22 +13,26 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
     private float horizontal;
 
+    [HideInInspector] public bool IsCanMove;
+
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
 
-
-    // Start is called before the first frame update
-    void Start()
+    
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        IsCanMove = true;
     }
 
     void Update()
     {
+        if(!IsCanMove)
+            return;
+        
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && IsGrounded())

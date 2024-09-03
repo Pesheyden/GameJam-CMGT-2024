@@ -11,7 +11,7 @@ public class NPCStats : MonoBehaviour
 public class NPCStatsBlock
 {
     [Header("PossessionStats")]
-    public Sprite CharacterSprite;
+    public GameObject CharacterPrefab;
     [Tooltip("0 - no keys")]public int KeyLevel;
     public float Speed;
     public float PossessionTime;

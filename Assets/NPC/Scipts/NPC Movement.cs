@@ -25,8 +25,7 @@ public class NPCMovement : MonoBehaviour
     private IEnumerator MovementCoroutine()
     {
         Vector3 startPosition = transform.position;
-        Vector3 endPosition = new Vector3(Random.Range(_startPosition.x - _xMovementBorders.x, _startPosition.x + _xMovementBorders.y), _startPosition.y,
-            transform.position.z);
+        Vector3 endPosition = new Vector3(Random.Range(_startPosition.x + _xMovementBorders.x, _startPosition.x + _xMovementBorders.y), _startPosition.y, _startPosition.z);
         float distance = Vector3.Distance(startPosition, endPosition);
         float movementTime = distance / _speed;
         float timeElapsed = 0;
@@ -39,7 +38,7 @@ public class NPCMovement : MonoBehaviour
         }
 
         yield return new WaitForSeconds(_timeBetweenMovement);
-        
+        Debug.Log(1);
         if (_canMove)
             StartCoroutine(MovementCoroutine());
     }
