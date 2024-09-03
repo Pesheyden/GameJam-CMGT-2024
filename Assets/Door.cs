@@ -6,6 +6,8 @@ public class Door : MonoBehaviour
 {
     public int keyRequirement;
 
+    private float previous;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +20,19 @@ public class Door : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collider)
     {
         Debug.Log(1);
-        if (other.gameObject.CompareTag("NPC"))
+        if (collider.gameObject.CompareTag("NPC"))
         {
-            if(other.gameObject.GetComponent<NPCStats>().NpcStatsBlock.KeyLevel == keyRequirement)
+            if(collider.gameObject.GetComponent<NPCStats>().NpcStatsBlock.KeyLevel == keyRequirement)
+            {
+                Open();
+                Invoke("Close", 2);
+            }
+        }else if (collider.gameObject.CompareTag("Player"))
+        {
+            if (collider.gameObject.GetComponent<PlayerController>().KeyLevel == keyRequirement)
             {
                 Open();
                 Invoke("Close", 2);
@@ -35,10 +44,11 @@ public class Door : MonoBehaviour
 
     private void Open()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+        previous = transform.position.y;
+        transform.position = new Vector2(transform.position.x, -2000);
     }
     private void Close()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        transform.position = new Vector2(transform.position.x, previous);
     }
 }
