@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError($"2 {name} could not exist in same time");
             Destroy(this);
         }
-
+        DontDestroyOnLoad(this);
         _instance = this;
         DontDestroyOnLoad(gameObject);
     }

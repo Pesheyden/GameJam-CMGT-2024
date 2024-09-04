@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private static PlayerController _instance;
-    private static PlayerController Instance => _instance;
+    public static PlayerController Instance => _instance;
     private PlayerMovement _playerMovement;
     private PlayerGhostShoot _playerGhostShoot;
 
@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour
 
         _playerMovement = GetComponent<PlayerMovement>();
         _playerGhostShoot = GetComponent<PlayerGhostShoot>();
+    }
+
+    private void StartShooting()
+    {
+        _playerGhostShoot.TurnOnShootingMode();
     }
 
     public void StartPossession(NPCController target)

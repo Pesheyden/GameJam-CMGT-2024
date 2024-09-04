@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,9 +19,10 @@ public class UIManager : MonoBehaviour
             Debug.LogError($"2 {name} could not exist in same time");
             Destroy(this);
         }
-
+        DontDestroyOnLoad(this);
         _instance = this;
     }
+    
 
     public void ChangeDeathUIStatus(bool status)
     {
