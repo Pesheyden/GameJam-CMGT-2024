@@ -7,12 +7,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float speed = 5;
+    [SerializeField] private float _speed = 5;
     public float JumpPower = 5;
 
     private bool isFacingRight = true;
     private float horizontal;
 
+    public float GroundRayDistance;
     [HideInInspector] public bool IsCanMove;
 
 
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        var collider = GetComponent<BoxCollider2D>();
+        GroundRayDistance = collider.size.y / 2 + 0.01f;
         IsCanMove = true;
     }
 
@@ -45,17 +48,21 @@ public class PlayerMovement : MonoBehaviour
         }
         Flip();
     }
-
-
-    // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
+        rb.velocity = new Vector2(horizontal * _speed, rb.velocity.y);
+    }
 
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+    public void UpdateMovementValues(float speed)
+    {
+        _speed = speed;
+        var collider = GetComponent<BoxCollider2D>();
+        GroundRayDistance = collider.size.y / 2 + 0.01f;
+        IsCanMove = true;
     }
 
     private bool IsGrounded() {
-        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, -groundCheck.up, 0.01f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, -groundCheck.up, GroundRayDistance, groundLayer);
         if (hit)
             return true;
         else 

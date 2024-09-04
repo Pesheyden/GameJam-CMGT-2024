@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="Main_Group" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <uie:PropertyField binding-path="IsMultipleClipsEnable" label="Multiple Clips" name="MultipleClips_BoolToggle" />
+        <ui:VisualElement name="MultiClip_Group" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); left: 15px; display: none;">
+            <uie:PropertyField binding-path="TimeBeetweenClips" label="Time Beetween Clips" name="TimeBeetweenClips_FloatField" tooltip="-1 Audio length" />
+            <uie:PropertyField binding-path="AudioClips" label="Audio Clips" name="AudioClips_ArrayField" />
+            <uie:PropertyField binding-path="IsRandomEnable" name="Random_BoolToggle" label="Random " />
+            <ui:VisualElement name="Random_Group" tabindex="0" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: relative; visibility: visible; display: none; left: 15px; opacity: 1;">
+                <uie:PropertyField binding-path="TypeRandom" name="RandomType_EnumField" label="Random type" />
+                <uie:PropertyField binding-path="ClipsPlayAmount" label="Clips Play Amount" name="ClipsPlayAmount_IntField" tooltip="-1 all" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <uie:PropertyField binding-path="TypeStart" label="Start Type" name="TypeStart_EnumField" />
+        <uie:PropertyField binding-path="StartDelay" label="Start Delay" name="StartDelay_FloatField" style="display: none; left: 15px;" />
+        <uie:PropertyField binding-path="RepeatAmount" name="RepeatAmount_IntField" tooltip="-1 inf" />
+        <uie:PropertyField binding-path="AudioClip" name="AudioClip_InputField" label="Audio Clip" />
+    </ui:VisualElement>
+</ui:UXML>

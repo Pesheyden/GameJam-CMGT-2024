@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance => _instance;
 
     [SerializeField] private GameObject _deathUI;
+
+    [SerializeField] private Image _possessionTimerFillingImage;
 
     private void Awake()
     {
@@ -25,5 +28,10 @@ public class UIManager : MonoBehaviour
     public void ChangeDeathUIStatus(bool status)
     {
         _deathUI.SetActive(status);
+    }
+
+    public void UpdateTimerFillingAmount(float amount)
+    {
+        _possessionTimerFillingImage.fillAmount = amount;
     }
 }

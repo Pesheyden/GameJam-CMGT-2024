@@ -23,6 +23,20 @@ public class GameManager : MonoBehaviour
     public void Death()
     {
         UIManager.Instance.ChangeDeathUIStatus(true);
+        PlayerController.Instance.ChangePlayerStatus(false);
+        PossessionTimer.Instance.PauseTimer();
+    }
+
+    public void PauseGame()
+    {
+        PlayerController.Instance.ChangePlayerStatus(false);
+        PossessionTimer.Instance.PauseTimer();
+    }
+
+    public void UnPauseGame()
+    {
+        PlayerController.Instance.ChangePlayerStatus(true);
+        PossessionTimer.Instance.UnPauseTimer();
     }
 
     public void SceneMainMenu()

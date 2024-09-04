@@ -15,6 +15,7 @@ public class PlayerGhostShoot : MonoBehaviour
     
     private float _currentStrength;
     private bool _isShootingModeOn;
+    public bool IsPaused;
     private Camera _camera;
 
     private void Awake()
@@ -25,7 +26,7 @@ public class PlayerGhostShoot : MonoBehaviour
 
     private void Update()
     {
-        if(!_isShootingModeOn)
+        if(!_isShootingModeOn || IsPaused)
             return;
         if(Input.GetMouseButtonDown(0))
             Shoot();
