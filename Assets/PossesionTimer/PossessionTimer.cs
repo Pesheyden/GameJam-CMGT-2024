@@ -24,8 +24,8 @@ public class PossessionTimer : MonoBehaviour
 
     public void StartTimer(float time)
     {
-        StartCoroutine(Timer(time));
         _currentTime = time;
+        StartCoroutine(Timer(time));
     }
 
     private IEnumerator Timer(float time)
@@ -39,7 +39,6 @@ public class PossessionTimer : MonoBehaviour
             UIManager.Instance.UpdateTimerFillingAmount(_currentTime / time);
             yield return null;
         }
-        
         PlayerController.Instance.StartShooting();
     }
 

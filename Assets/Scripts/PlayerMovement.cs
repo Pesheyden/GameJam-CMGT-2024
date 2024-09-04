@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private float _speed = 5;
-    public float JumpPower = 5;
+    [SerializeField] private  float _jumpPower = 5;
 
     private bool isFacingRight = true;
     private float horizontal;
@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float GroundRayDistance;
     [HideInInspector] public bool IsCanMove;
 
+    public SoundPlayer sound;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -33,29 +34,40 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(!IsCanMove)
+        if (!IsCanMove)
             return;
+            
         
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, JumpPower);
+            rb.velocity = new Vector2(rb.velocity.x, _jumpPower);
         }
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
         Flip();
+
+        if (rb.velocity.magnitude != 0)
+        {
+            sound.gameObject.GetComponent<AudioSource>().volume = 0.2F;
+        }
+        else
+        {
+            sound.gameObject.GetComponent<AudioSource>().volume = 0F;
+        }
     }
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * _speed, rb.velocity.y);
     }
 
-    public void UpdateMovementValues(float speed)
+    public void UpdateMovementValues(float speed,float jumpPower)
     {
         _speed = speed;
+        _jumpPower = jumpPower;
         var collider = GetComponent<BoxCollider2D>();
         GroundRayDistance = collider.size.y / 2 + 0.01f;
         IsCanMove = true;
@@ -77,5 +89,11 @@ public class PlayerMovement : MonoBehaviour
             localScale.x *= -1;
             transform.localScale = localScale;
         }
+    }
+
+    public void TurnMovement(bool status)
+    {
+        rb.bodyType = status ? RigidbodyType2D.Dynamic : RigidbodyType2D.Static;
+        IsCanMove = status;
     }
 }

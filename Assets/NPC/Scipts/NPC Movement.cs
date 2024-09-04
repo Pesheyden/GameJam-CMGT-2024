@@ -38,7 +38,6 @@ public class NPCMovement : MonoBehaviour
         }
 
         yield return new WaitForSeconds(_timeBetweenMovement);
-        Debug.Log(1);
         if (_canMove)
             StartCoroutine(MovementCoroutine());
     }

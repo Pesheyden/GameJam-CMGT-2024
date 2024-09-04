@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -7,6 +8,7 @@ public class Door : MonoBehaviour
     public int keyRequirement;
 
     private float previous;
+    public SoundPlayer sound;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class Door : MonoBehaviour
             if(collider.gameObject.GetComponent<NPCStats>().NpcStatsBlock.KeyLevel == keyRequirement)
             {
                 Open();
+                sound.StartPlayingProcess();
                 Invoke("Close", 2);
             }
         }else if (collider.gameObject.CompareTag("Player"))
@@ -35,6 +38,7 @@ public class Door : MonoBehaviour
             if (collider.gameObject.GetComponent<PlayerController>().KeyLevel == keyRequirement)
             {
                 Open();
+                sound.StartPlayingProcess();
                 Invoke("Close", 2);
             }
         }

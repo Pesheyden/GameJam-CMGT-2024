@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +11,10 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance => _instance;
 
     [SerializeField] private GameObject _deathUI;
+    public SoundPlayer soundDeath;
     [SerializeField] private GameObject _pauseUI;
     [SerializeField] private GameObject _winUI;
+    public SoundPlayer soundWin;
 
     [SerializeField] private Image _possessionTimerFillingImage;
 
@@ -30,6 +33,7 @@ public class UIManager : MonoBehaviour
     public void ChangeDeathUIStatus(bool status)
     {
         _deathUI.SetActive(status);
+        soundDeath.StartPlayingProcess();
     }
 
     public void ChangePauseUIStatus(bool status)
@@ -40,6 +44,7 @@ public class UIManager : MonoBehaviour
     public void ChangeWinUIStatus(bool status)
     {
         _winUI.SetActive(status);
+        soundWin.StartPlayingProcess();
     }
 
     public void UpdateTimerFillingAmount(float amount)

@@ -32,17 +32,23 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.Instance.ChangePlayerStatus(false);
         PossessionTimer.Instance.PauseTimer();
+        UIManager.Instance.ChangePauseUIStatus(true);
     }
 
     public void UnPauseGame()
     {
         PlayerController.Instance.ChangePlayerStatus(true);
         PossessionTimer.Instance.UnPauseTimer();
+        UIManager.Instance.ChangePauseUIStatus(false);
     }
 
-    public void SetScene(string scenename)
+    public void GameWin()
     {
-        SceneManager.LoadScene(scenename);
+        UIManager.Instance.ChangeWinUIStatus(true);
+    }
+    public void SetScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
     public void RestartScene()
