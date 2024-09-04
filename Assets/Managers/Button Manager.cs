@@ -30,6 +30,6 @@ public class ButtonManager : MonoBehaviour
     public void ChangePauseUIStatus(bool status)
     {
         sound.StartPlayingProcess();
-        UIManager.Instance.ChangePauseUIStatus(status);
+        GameManager.Instance.UnPauseGame();
     }
 }

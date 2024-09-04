@@ -34,6 +34,14 @@ public class PlayerController : MonoBehaviour
         StartShooting();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {   
+            GameManager.Instance.PauseGame();
+        }
+    }
+
     public void StartShooting()
     {
         _playerGhostShoot.TurnOnShootingMode();
