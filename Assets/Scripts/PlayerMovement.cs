@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float GroundRayDistance;
     [HideInInspector] public bool IsCanMove;
 
+    public SoundPlayer sound;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -48,6 +49,15 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
         Flip();
+
+        if (rb.velocity.magnitude != 0)
+        {
+            sound.gameObject.GetComponent<AudioSource>().volume = 0.2F;
+        }
+        else
+        {
+            sound.gameObject.GetComponent<AudioSource>().volume = 0F;
+        }
     }
     private void FixedUpdate()
     {

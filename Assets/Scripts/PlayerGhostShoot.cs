@@ -12,7 +12,8 @@ public class PlayerGhostShoot : MonoBehaviour
     [SerializeField] private float _maxArrowScale;
     [SerializeField] private float _minArrowScale;
     [SerializeField] private float _maxMouseDistance;
-    
+
+    public SoundPlayer sound;
     
     private float _currentStrength;
     private bool _isShootingModeOn;
@@ -62,6 +63,7 @@ public class PlayerGhostShoot : MonoBehaviour
         var ghost = Instantiate(_ghostPrefab, transform.position, quaternion.identity);
         ghost.GetComponent<Rigidbody2D>().AddForce(-direction * _speed * _currentStrength);
         ghost.GetComponent<Ghost>().PlayerGhostShoot = this;
+        sound.StartPlayingProcess();
         TurnOffShootingMode();
     }
 
