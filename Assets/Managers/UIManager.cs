@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance => _instance;
 
     [SerializeField] private GameObject _deathUI;
+    [SerializeField] private GameObject _pauseUI;
+    [SerializeField] private GameObject _winUI;
 
     [SerializeField] private Image _possessionTimerFillingImage;
 
@@ -28,6 +30,16 @@ public class UIManager : MonoBehaviour
     public void ChangeDeathUIStatus(bool status)
     {
         _deathUI.SetActive(status);
+    }
+
+    public void ChangePauseUIStatus(bool status)
+    {
+        _pauseUI.SetActive(status);
+    }
+
+    public void ChangeWinUIStatus(bool status)
+    {
+        _winUI.SetActive(status);
     }
 
     public void UpdateTimerFillingAmount(float amount)

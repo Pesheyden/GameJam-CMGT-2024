@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(this);
         _instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Death()
@@ -39,8 +40,19 @@ public class GameManager : MonoBehaviour
         PossessionTimer.Instance.UnPauseTimer();
     }
 
-    public void SceneMainMenu()
+    public void SetScene(string scenename)
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainMenu"));
+        SceneManager.LoadScene(scenename);
     }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
