@@ -19,7 +19,7 @@ public class NPCController : MonoBehaviour
     {
         _npcMovement.StopMovement();
         gameObject.SetActive(false);
-        return (_npcStats.NpcStatsBlock, transform);
+        return (_npcStats.NpcStatsBlock, gameObject.transform);
     }
 
     public void UnPosses()

@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,7 +21,6 @@ public class PlayerGhostShoot : MonoBehaviour
 
     private void Awake()
     {
-        _isShootingModeOn = true;
         _camera = Camera.main;
     }
 
@@ -59,7 +59,7 @@ public class PlayerGhostShoot : MonoBehaviour
     public void Shoot()
     {
         Vector2 direction = transform.position - _camera.ScreenToWorldPoint(Input.mousePosition);
-        var ghost = Instantiate(_ghostPrefab);
+        var ghost = Instantiate(_ghostPrefab, transform.position, quaternion.identity);
         ghost.GetComponent<Rigidbody2D>().AddForce(-direction * _speed * _currentStrength);
         ghost.GetComponent<Ghost>().PlayerGhostShoot = this;
         TurnOffShootingMode();

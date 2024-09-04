@@ -15,5 +15,6 @@ public class NPCStatsBlock
     public Vector2 ColliderSize;
     [Tooltip("0 - no keys")]public int KeyLevel;
     public float Speed;
+    public float JumpPower;
     public float PossessionTime;
 }

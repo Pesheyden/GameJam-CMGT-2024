@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,10 +29,16 @@ public class PlayerController : MonoBehaviour
         _collider = GetComponent<BoxCollider2D>();
     }
 
+    private void Start()
+    {
+        StartShooting();
+    }
+
     public void StartShooting()
     {
         _playerGhostShoot.TurnOnShootingMode();
-        _playerMovement.IsCanMove = false;
+        _playerMovement.TurnMovement(false);
+        
     }
 
     public void StartPossession(NPCController target)
@@ -43,31 +50,31 @@ public class PlayerController : MonoBehaviour
         ChangeCharacter(info.Item1.CharacterPrefab);
         KeyLevel = info.Item1.KeyLevel;
         _collider.size = info.Item1.ColliderSize * 0.15f;
-        _playerMovement.UpdateMovementValues(info.Item1.Speed);
+        _playerMovement.UpdateMovementValues(info.Item1.Speed, info.Item1.JumpPower);
         PossessionTimer.Instance.StartTimer(info.Item1.PossessionTime);
         
         //Transform position
         transform.position = info.Item2.position;
 
-        _playerMovement.IsCanMove = true;
+        _playerMovement.TurnMovement(true);
     }
 
     private void ChangeCharacter(GameObject prefab)
     {
         Destroy(_currentCharacter);
-        Instantiate(prefab, transform);
+        _currentCharacter = Instantiate(prefab, transform);
     }
 
     public void ChangePlayerStatus(bool status)
     {
         if (status)
         {
-            _playerMovement.IsCanMove = true;
+            _playerMovement.TurnMovement(true);
             _playerGhostShoot.IsPaused = true;
         }
         else
         {
-            _playerMovement.IsCanMove = false;
+            _playerMovement.TurnMovement(false);
             _playerGhostShoot.IsPaused = false;
         }
     }
