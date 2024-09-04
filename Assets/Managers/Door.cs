@@ -24,16 +24,16 @@ public class Door : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collider)
     {
-        Debug.Log(1);
-        if (collider.gameObject.CompareTag("NPC"))
-        {
-            if(collider.gameObject.GetComponent<NPCStats>().NpcStatsBlock.KeyLevel == keyRequirement)
-            {
-                Open();
-                sound.StartPlayingProcess();
-                Invoke("Close", 2);
-            }
-        }else if (collider.gameObject.CompareTag("Player"))
+        // if (collider.gameObject.CompareTag("NPC"))
+        // {
+        //     if(collider.gameObject.GetComponent<NPCStats>().NpcStatsBlock.KeyLevel == keyRequirement)
+        //     {
+        //         Open();
+        //         sound.StartPlayingProcess();
+        //         Invoke("Close", 2);
+        //     }
+        // }
+        if (collider.gameObject.CompareTag("Player"))
         {
             if (collider.gameObject.GetComponent<PlayerController>().KeyLevel == keyRequirement)
             {
