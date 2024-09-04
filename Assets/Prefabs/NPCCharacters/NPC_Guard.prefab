@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3859740087471092390}
   - component: {fileID: 1115035443714888173}
   - component: {fileID: 4562327686206961685}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NPC_Guard
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
-  _xMovementBorders: {x: -5, y: 5}
+  _xMovementBorders: {x: 0, y: 0}
   _timeBetweenMovement: 1
 --- !u!114 &6284743894119876176
 MonoBehaviour:
@@ -82,7 +82,7 @@ MonoBehaviour:
     ColliderSize: {x: 4.73, y: 16.32}
     KeyLevel: 1
     Speed: 2
-    JumpPower: 0
+    JumpPower: 1
     PossessionTime: 10
 --- !u!212 &3859740087471092390
 SpriteRenderer:
@@ -127,7 +127,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3da78a43ef35f7b4f9393b6a49de8a24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.73, y: 16.32}
