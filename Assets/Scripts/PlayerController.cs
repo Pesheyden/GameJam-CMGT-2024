@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {   
             GameManager.Instance.PauseGame();
         }
