@@ -27,7 +27,7 @@ public class ButtonManager : MonoBehaviour
         GameManager.Instance.RestartScene();
     }
 
-    public void ChangePauseUIStatus(bool status)
+    public void ChangePauseUIStatus()
     {
         sound.StartPlayingProcess();
         GameManager.Instance.UnPauseGame();
