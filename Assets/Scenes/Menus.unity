@@ -222,9 +222,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1761545306907404946, guid: 9cf6834ab01e0f54480c09f2f18811d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3669948666971705840, guid: 9cf6834ab01e0f54480c09f2f18811d5, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3669948666971705840, guid: 9cf6834ab01e0f54480c09f2f18811d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5891845023657057700, guid: 9cf6834ab01e0f54480c09f2f18811d5, type: 3}
       propertyPath: m_Pivot.x
