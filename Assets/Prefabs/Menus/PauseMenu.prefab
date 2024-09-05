@@ -410,9 +410,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8627211863722397385}
   - component: {fileID: 7647917002405442124}
-  - component: {fileID: 8038223768730536211}
   m_Layer: 0
-  m_Name: Managers
+  m_Name: ButtonManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,24 +445,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8806955395740118316}
---- !u!114 &8038223768730536211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4620762311579268937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0fd57474ddf22e41896edb02e0133c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deathUI: {fileID: 0}
-  soundDeath: {fileID: 0}
-  _pauseUI: {fileID: 0}
-  _winUI: {fileID: 0}
-  soundWin: {fileID: 0}
-  _possessionTimerFillingImage: {fileID: 0}
 --- !u!1 &6679946177537575325
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,10 +833,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8038223768730536211}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 7647917002405442124}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: ChangePauseUIStatus
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
