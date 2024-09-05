@@ -226,10 +226,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 3669948666971705840, guid: 9cf6834ab01e0f54480c09f2f18811d5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5891845023657057700, guid: 9cf6834ab01e0f54480c09f2f18811d5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -326,26 +322,6 @@ PrefabInstance:
     - target: {fileID: 3773751669036593270, guid: dcf1703391949064c96ff581a9cdbd37, type: 3}
       propertyPath: m_Name
       value: LoseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 3773751669036593270, guid: dcf1703391949064c96ff581a9cdbd37, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4082443969524409163, guid: dcf1703391949064c96ff581a9cdbd37, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6446698476663585682, guid: dcf1703391949064c96ff581a9cdbd37, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6446698476663585682, guid: dcf1703391949064c96ff581a9cdbd37, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 6446698476663585682, guid: dcf1703391949064c96ff581a9cdbd37, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 7590045505700091577, guid: dcf1703391949064c96ff581a9cdbd37, type: 3}
       propertyPath: m_Pivot.x
