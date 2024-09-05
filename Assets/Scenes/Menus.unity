@@ -656,6 +656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3773751669036593270, guid: dcf1703391949064c96ff581a9cdbd37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7590045505700091577, guid: dcf1703391949064c96ff581a9cdbd37, type: 3}
       propertyPath: m_Pivot.x
       value: 0
