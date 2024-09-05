@@ -39,7 +39,7 @@ public class Door : MonoBehaviour
             {
                 Open();
                 sound.StartPlayingProcess();
-                Invoke("Close", 2);
+                Invoke("Close", 10);
             }
         }
 
